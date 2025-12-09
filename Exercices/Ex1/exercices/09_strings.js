@@ -10,6 +10,8 @@
  *  - ne pas utiliser la fonction concat de String
  */
 
-const concat
+const concat = (name, firstName) => `${name} gfdgsg${firstName}`;
+// (name = ' test' + firstname)
+console.log(concat("John", "Doe"));
 
 module.exports = {concat};
