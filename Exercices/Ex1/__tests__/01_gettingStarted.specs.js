@@ -1,6 +1,6 @@
 const { describe, expect } = require("@jest/globals");
 
-const example = require("../exercices/01_gettingStarted.js");
+const example = require("../exercices/gettingStarted.js");
 
 describe("01_Example.js", () => {
   it("should return hello world", () => {

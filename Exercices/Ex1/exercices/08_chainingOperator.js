@@ -15,6 +15,10 @@
  *
  */
 
+<<<<<<< HEAD
 const getGroupName = (user) => user?.group?.name;
+=======
+const getGroupName = (user) => user.group?.name;
+>>>>>>> c8b53d6a8d2e4111ce557c601abc3ca43ff716f4
 
 module.exports = { getGroupName };
