@@ -1,10 +1,9 @@
-
 /**
  * Créez une fonction asynchrone qui attend 2 secondes
- * 
- * utilisez new Promise 
+ *
+ * utilisez new Promise
  */
 
-const sleep
+const sleep = (ms = 2000) => new Promise((resolve) => setTimeout(resolve, ms));
 
-module.exports = {sleep};
+module.exports = { sleep };

@@ -24,7 +24,7 @@ ex: la pomme est rouge et la banane est jaune
 
  */
 
-const countWords
+const countWords = 1;
 
 /**
 Exercice : Trier un objet par valeur
@@ -51,6 +51,6 @@ exemple:
 
 */
 
-const sortObjectByValue
+const sortObjectByValue = 1;
 
-module.exports = {countWords, sortObjectByValue};
+module.exports = { countWords, sortObjectByValue };

@@ -10,6 +10,8 @@
  */
 
 function ternaryChain(a, b) {
+  let isBiggerOrEqual = a > b ? '>' : a < b ? '<' : '=';
+  return isBiggerOrEqual;
 }
 
 module.exports = ternaryChain;

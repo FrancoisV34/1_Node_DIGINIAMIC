@@ -1,47 +1,44 @@
 /**
  * utiliser l'opérateur de composition ... afin de fusionner 2 tableaux passés en paramètres
- * 
+ *
  * ex: [1, 2, 3], [4, 5, 6] => [1, 2, 3, 4, 5, 6]
- * 
- * contrainte: 
+ *
+ * contrainte:
  *  - ne pas utiliser la méthode concat, map, merge, push
  *  - for, foreach, while, do while sont interdits
  */
 
-const concat
-
+const concat = (tab1, tab2) => [...tab1, ...tab2];
 
 /**
  * utiliser l'opérateur de composition ... afin d'ajouter un élément à un tableau
- * 
+ *
  * ex: [1, 2, 3], 4 => [1, 2, 3, 4]
- * 
+ *
  * contrainte:
  * - ne pas utiliser la méthode push
  */
 
-const push
+const push = (tab3, val) => [...tab3, val];
 
 /**
  * utiliser l'opérateur de composition ... afin de fusionner 2 objets passés en paramètres
- * 
+ *
  * ex: {a: 1, b: 2}, {c: 3, d: 4} => {a: 1, b: 2, c: 3, d: 4}
  */
 
-const merge
+const merge = (obj1, obj2) => ({ ...obj1, ...obj2 });
 
 /**
  * utiliser l'opérateur de composition ... afin de modifier la propriété name de l'objet
- * 
+ *
  * ex: {name: 'toto'}, 'titi' => {name: 'titi'}
- * 
+ *
  * contrainte:
  *  - interdiction d'utiliser l'opérateur d'affectation "="
  */
 
-const setName
-
+const setName = (nam1, nam2) => ({ ...nam1, name: nam2 });
 
 // astuce: {...obj} crée une copie de l'objet, c'est un des principes de l'immutabilité et évite les problèmes de référence
-module.exports = {concat, push, merge, setName}
-
+module.exports = { concat, push, merge, setName };
