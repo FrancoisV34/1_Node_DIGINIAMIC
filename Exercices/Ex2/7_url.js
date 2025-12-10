@@ -12,3 +12,8 @@ myUrl.search = '?query=marecherche';
 myUrl.hash = '#section2';
 
 console.log(myUrl.toString()); // Affiche l'URL complète
+console.log(myUrl.protocol); // Affiche le protocole
+console.log(myUrl.hostname); // Affiche le nom d'hôte
+console.log(myUrl.pathname); // Affiche le chemin
+console.log(myUrl.search); // Affiche la chaîne de requête
+console.log(myUrl.hash); // Affiche le hash
