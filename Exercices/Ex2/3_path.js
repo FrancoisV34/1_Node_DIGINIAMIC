@@ -1,7 +1,6 @@
 // Créez un chemin complet vers un fichier appelé example.txt dans un dossier nommé assets
 // Affichez le nom du répertoire du chemin complet
 // Affichez le nom du fichier à partir du chemin complet
-<<<<<<< HEAD
 // Affichez l'extension du fichier
 
 import path from 'path';
@@ -21,6 +20,4 @@ console.log('Extension du fichier :', path.extname(examplePath));
 console.log('Nom du répertoire :', path.dirname(testPath));
 console.log('Nom du fichier :', path.basename(testPath));
 console.log('Extension du fichier :', path.extname(testPath));
-=======
 // Affichez l'extension du fichier
->>>>>>> e73bd7ba219ef230043d878f55bfdadb1aca8e8a

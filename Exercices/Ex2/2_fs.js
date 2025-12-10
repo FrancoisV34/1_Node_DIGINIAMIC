@@ -1,6 +1,4 @@
 // Lisez le contenu du fichier example.txt situé dans le dossier assets et affichez-le dans la console.
-<<<<<<< HEAD
-<<<<<<< HEAD
 // Créez un nouveau fichier appelé output.txt dans le même dossier et écrivez-y une chaîne de caractères : Ceci est un nouveau fichier créé avec Node.js
 // Supprimez le fichier output.txt que vous venez de créer.
 
@@ -24,34 +22,27 @@ fs.unlink('./assets/output.txt', (err) => {
   if (err) throw err;
   console.log('Le fichier a été supp');
 });
-=======
-=======
->>>>>>> e73bd7ba219ef230043d878f55bfdadb1aca8e8a
-// Créez un nouveau fichier appelé output.txt dans le même dossier et écrivez-y une chaîne de caractères : 
-// Ceci est un nouveau fichier créé avec Node.js
-// Supprimez le fichier output.txt que vous venez de créer.
 
 const fs = require('fs');
 
 // Lecture
 fs.readFile('assets/example.txt', 'utf8', (err, data) => {
-    if (err) throw err;
-    console.log(data);
+  if (err) throw err;
+  console.log(data);
 });
 
-// Écriture / Création 
-fs.writeFile('assets/output.txt', 'Ceci est un nouveau fichier créé avec Node.js', (err) => {
+// Écriture / Création
+fs.writeFile(
+  'assets/output.txt',
+  'Ceci est un nouveau fichier créé avec Node.js',
+  (err) => {
     if (err) throw err;
     console.log('Fichier créé avec succès!');
-});
+  }
+);
 
 // Suppression
 fs.unlink('assets/output.txt', (err) => {
-    if (err) throw err;
-    console.log('Fichier supprimé avec succès!');
-<<<<<<< HEAD
+  if (err) throw err;
+  console.log('Fichier supprimé avec succès!');
 });
->>>>>>> e73bd7ba219ef230043d878f55bfdadb1aca8e8a
-=======
-});
->>>>>>> e73bd7ba219ef230043d878f55bfdadb1aca8e8a
