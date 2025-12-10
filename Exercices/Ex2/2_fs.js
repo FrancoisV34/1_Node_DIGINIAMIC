@@ -1,5 +1,6 @@
 // Lisez le contenu du fichier example.txt situé dans le dossier assets et affichez-le dans la console.
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Créez un nouveau fichier appelé output.txt dans le même dossier et écrivez-y une chaîne de caractères : Ceci est un nouveau fichier créé avec Node.js
 // Supprimez le fichier output.txt que vous venez de créer.
 
@@ -24,6 +25,8 @@ fs.unlink('./assets/output.txt', (err) => {
   console.log('Le fichier a été supp');
 });
 =======
+=======
+>>>>>>> e73bd7ba219ef230043d878f55bfdadb1aca8e8a
 // Créez un nouveau fichier appelé output.txt dans le même dossier et écrivez-y une chaîne de caractères : 
 // Ceci est un nouveau fichier créé avec Node.js
 // Supprimez le fichier output.txt que vous venez de créer.
@@ -46,5 +49,9 @@ fs.writeFile('assets/output.txt', 'Ceci est un nouveau fichier créé avec Node.
 fs.unlink('assets/output.txt', (err) => {
     if (err) throw err;
     console.log('Fichier supprimé avec succès!');
+<<<<<<< HEAD
+});
+>>>>>>> e73bd7ba219ef230043d878f55bfdadb1aca8e8a
+=======
 });
 >>>>>>> e73bd7ba219ef230043d878f55bfdadb1aca8e8a
