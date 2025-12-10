@@ -7,21 +7,58 @@
 // C'est-à-dire (Créer une fonction sendMessage qui prend un username et un message en param et l'appeler plusieurs fois)
 // On affichera le nom de l'utilisateur puis le message dans la console
 
-import { EventEmitter } from 'events';
+// Tout n'était pas demandé mais l'exemple complet est ici pour mieux comprendre l'utilisation des événements
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
-const messageReceived = new EventEmitter();
+class User {
+  constructor(name) {
+    this.name = name;
+    // Chaque utilisateur écoute les messages des autres
+    emitter.on('messageReceived', (message, from) => {
+      if (from !== this.name) {
+        console.log(`Message reçu par ${this.name} de ${from} : ${message}`);
+      }
+    });
+  }
 
-// Gestionnaire d'événements pour messageReceived
-messageReceived.on('messageReceived', (username, message) => {
-  console.log(`${username} a dit : ${message}`);
-});
-
-// Fonction pour simuler l'envoi d'un message
-function sendMessage(username, message) {
-  messageReceived.emit('messageReceived', username, message);
+  sendMessage(message) {
+    emitter.emit('messageReceived', message, this.name);
+  }
 }
 
-// Simuler l'envoi de messages
-sendMessage('Alice', 'Bonjour tout le monde !');
-sendMessage('Bob', 'Salut Alice ! Comment ça va ?');
-sendMessage('Charlie', 'Hey les amis, quoi de neuf ?');
+// Gestionnaire d'événement principal (non indispensable ici mais conforme à l'énoncé)
+emitter.on('messageReceived', (message, username) => {
+  console.log(`${username} : ${message}`);
+});
+
+class SystemChat {
+  constructor() {
+    this.users = [];
+  }
+
+  addUser(user) {
+    this.users.push(user);
+  }
+
+  // Diffuse un message à tous sauf l'émetteur
+  sendAll(message, fromUser) {
+    this.users.forEach((user) => {
+      if (user !== fromUser) {
+        emitter.emit('messageReceived', message, fromUser.name);
+      }
+    });
+  }
+}
+
+const user1 = new User('John');
+const user2 = new User('Jane');
+const systemChat = new SystemChat();
+
+systemChat.addUser(user1);
+systemChat.addUser(user2);
+
+// Simulations
+user1.sendMessage('Hello Jane !');
+user2.sendMessage('Salut John !');
+systemChat.sendAll('Message du système pour tous', user1);
