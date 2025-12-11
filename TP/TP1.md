@@ -4,10 +4,15 @@ L’objectif du TP est de s'entraîner avec les modules fondamentaux de Node.js.
 
 1 - Serveur de fichiers statiques
 
+<<<<<<< HEAD
 Créer un serveur HTTP qui servira des fichiers statiques.
 
 <!-- Utiliser les modules path et fs pour gérer les chemins et la lecture des fichiers  -->
 
+=======
+Créer un serveur HTTP qui servira des fichiers statiques. 
+<!-- Utiliser les modules path et fs pour gérer les chemins et la lecture des fichiers  -->
+>>>>>>> upstream/main
 Implémenter une gestion d'erreurs basique (à minima erreur 404 et erreur 500)
 
 2 - Monitoring système
