@@ -1,41 +1,39 @@
-// routes/tp.routes.js
-const controller = require('../controllers/tp.controller');
+// routes/todos.routes.js
+const controller = require('../controllers/todos.controller');
 
 module.exports = (req, res) => {
   const urlParts = req.url.split('/').filter(Boolean);
   const method = req.method;
 
-  // GET /api/all
-  if (method === 'GET' && req.url === '/api/all') {
-    return controller.getAllItems(req, res);
+  // GET /api/todos
+  if (method === 'GET' && req.url === '/api/todos') {
+    return controller.getAllTodos(req, res);
   }
 
-  // GET /api/all/:id
+  // GET /api/todos/:id
   if (
     method === 'GET' &&
     urlParts[0] === 'api' &&
-    urlParts[1] === 'all' &&
+    urlParts[1] === 'todos' &&
     urlParts[2]
   ) {
     const id = parseInt(urlParts[2], 10);
     return controller.getTodoById(req, res, id);
   }
 
-  // POST /items
-  let items = [];
-
-  if (method === 'POST' && req.url === '/items') {
+  // POST /api/todos
+  if (method === 'POST' && req.url === '/api/todos') {
     let body = '';
     req.on('data', (chunk) => (body += chunk));
-    req.on('end', () => controller.createItem(req, res, body));
+    req.on('end', () => controller.createTodo(req, res, body));
     return;
   }
 
-  // PUT /api/all/:id
+  // PUT /api/todos/:id
   if (
     method === 'PUT' &&
     urlParts[0] === 'api' &&
-    urlParts[1] === 'all' &&
+    urlParts[1] === 'todos' &&
     urlParts[2]
   ) {
     const id = parseInt(urlParts[2], 10);
@@ -45,11 +43,11 @@ module.exports = (req, res) => {
     return;
   }
 
-  // DELETE /api/all/:id
+  // DELETE /api/todos/:id
   if (
     method === 'DELETE' &&
     urlParts[0] === 'api' &&
-    urlParts[1] === 'all' &&
+    urlParts[1] === 'todos' &&
     urlParts[2]
   ) {
     const id = parseInt(urlParts[2], 10);

@@ -14,8 +14,8 @@ const loadItems = () => {
   }
 };
 
-const saveTodos = (todos) => {
-  fs.writeFileSync(DB_PATH, JSON.stringify(todos, null, 2));
+const saveItems = (items) => {
+  fs.writeFileSync(DB_PATH, JSON.stringify(items, null, 2));
 };
 
 // Services
@@ -25,8 +25,8 @@ exports.getAll = () => {
 };
 
 exports.getById = (id) => {
-  const todos = loadItems();
-  return todos.find((t) => t.id === id);
+  const items = loadItems();
+  return items.find((t) => t.id === id);
 };
 
 exports.create = (data) => {
@@ -38,32 +38,32 @@ exports.create = (data) => {
     description: data.description,
   };
   items.push(newItem);
-  saveTodos(items);
+  saveItems(items);
   return newItem;
 };
 
 exports.update = (id, data) => {
-  const todos = loadItems();
-  const index = todos.findIndex((t) => t.id === id);
+  const items = loadItems();
+  const index = items.findIndex((t) => t.id === id);
   if (index === -1) return null;
 
-  todos[index] = {
-    ...todos[index],
-    title: data.title ?? todos[index].title,
-    completed: data.completed ?? todos[index].completed,
+  items[index] = {
+    ...items[index],
+    title: data.title ?? items[index].title,
+    description: data.description ?? items[index].description,
   };
 
-  saveTodos(todos);
-  return todos[index];
+  saveItems(items);
+  return items[index];
 };
 
 exports.remove = (id) => {
-  const todos = loadItems();
-  const initialLength = todos.length;
+  const items = loadItems();
+  const initialLength = items.length;
 
-  const updated = todos.filter((t) => t.id !== id);
+  const updated = items.filter((t) => t.id !== id);
   if (updated.length === initialLength) return false;
 
-  saveTodos(updated);
+  saveItems(updated);
   return true;
 };
